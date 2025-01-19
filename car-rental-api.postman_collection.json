@@ -1,0 +1,979 @@
+{
+	"info": {
+		"_postman_id": "246de4bc-cd53-49b7-ad77-62b893723eb6",
+		"name": "car-rental-api",
+		"description": "SDE 2024 project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get car by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cars/:id?currency=EUR",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cars",
+										":id"
+									],
+									"query": [
+										{
+											"key": "currency",
+											"value": "EUR"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update car by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelId\": 1,\n  \"mileage\": 350000,\n  \"equipment\": [\n    1\n  ],\n  \"dayPrice\": 60,\n  \"color\": \"black\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cars/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cars",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete car by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cars/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cars",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Searching for cars with filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars?startDate=2025-01-01&endDate=2025-07-31&sortBy=ID&sortDirection=ASC&page=1&size=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Ford",
+									"disabled": true
+								},
+								{
+									"key": "model",
+									"value": "Mustang",
+									"disabled": true
+								},
+								{
+									"key": "carType",
+									"value": "Sedan",
+									"disabled": true
+								},
+								{
+									"key": "fuelType",
+									"value": "Diesel",
+									"disabled": true
+								},
+								{
+									"key": "isGearboxAutomatic",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "seatsMin",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "seatsMax",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "yearMin",
+									"value": "1950",
+									"disabled": true
+								},
+								{
+									"key": "yearMax",
+									"value": "2100",
+									"disabled": true
+								},
+								{
+									"key": "dayPriceMin",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "dayPriceMax",
+									"value": "100000",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-07-31"
+								},
+								{
+									"key": "place",
+									"value": "-77.0364,38.8951",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "ID"
+								},
+								{
+									"key": "sortDirection",
+									"value": "ASC"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modelId\": 1,\n  \"mileage\": 350000,\n  \"equipment\": [\n    1\n  ],\n  \"dayPrice\": 60,\n  \"color\": \"black\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reservations",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get reservation by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"query": [
+										{
+											"key": "currency",
+											"value": "PLN",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update reservation by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"carId\": 1,\n  \"beginDate\": \"2025-01-07\",\n  \"beginPosition\": \"46.0670,11.1504\",\n  \"endDate\": \"2025-01-28\",\n  \"endPosition\": \"46.0625,11.1156\",\n  \"isMaintenance\": false,\n  \"calculateOnly\": false,\n  \"customer\": {\n    \"externalId\": 1,\n    \"name\": \"John\",\n    \"surname\": \"Doe\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete reservation by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Searching for reservations with filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reservations?customerExternalId=1&carId=1&sortBy=CAR_TYPE&sortDirection=ASC&page=1&size=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservations"
+							],
+							"query": [
+								{
+									"key": "customerExternalId",
+									"value": "1"
+								},
+								{
+									"key": "carId",
+									"value": "1"
+								},
+								{
+									"key": "startDate",
+									"value": "1987-07-31",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "1987-07-31",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "CAR_TYPE"
+								},
+								{
+									"key": "sortDirection",
+									"value": "ASC"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"carId\": 1,\n  \"beginDate\": \"2025-03-07\",\n  \"beginPosition\": \"46.0670,11.1504\",\n  \"endDate\": \"2025-03-23\",\n  \"endPosition\": \"46.0625,11.1156\",\n  \"isMaintenance\": false,\n  \"currency\": \"PLN\",\n  \"calculateOnly\": false,\n  \"customer\": {\n    \"externalId\": 1,\n    \"name\": \"John\",\n    \"surname\": \"Doe\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reservations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get user by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"username\": \"user\",\n  \"email\": \"example@example.com\",\n  \"name\": \"John\",\n  \"surname\": \"Doe\",\n  \"userRole\": \"USER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "32163645",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"user\",\n  \"password\": \"password\",\n  \"email\": \"example@example.com\",\n  \"name\": \"User1\",\n  \"surname\": \"User1s\",\n  \"userRole\": \"API_CLIENT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "internal",
+			"item": [
+				{
+					"name": "models",
+					"item": [
+						{
+							"name": "Get all car models",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/internal/models",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"internal",
+										"models"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new car model",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"brandId\": 1,\n  \"name\": \"Mustang\",\n  \"productionYear\": 2005,\n  \"carTypeId\": 1,\n  \"fuelTypeId\": 1,\n  \"isGearboxAutomatic\": true,\n  \"numberOfDoors\": 4,\n  \"numberOfSeats\": 5,\n  \"trunkCapacity\": 500,\n  \"horsePower\": 530,\n  \"avgFuelConsumption\": 5.3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/internal/models",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"internal",
+										"models"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all car models of specific brand",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/internal/models/:brandId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"internal",
+										"models",
+										":brandId"
+									],
+									"variable": [
+										{
+											"key": "brandId",
+											"value": "32163645",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all car brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/brands",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all car types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/carTypes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"carTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all fuel types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/fuelTypes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"fuelTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all equipment pieces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/equipmentPieces",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"equipmentPieces"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "/login api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response to extract the token",
+									"let response = pm.response.json(); // assuming the response is JSON",
+									"let token = response.accessToken; // adjust the key based on your response structure",
+									"",
+									"// Set the token as a collection variable",
+									"pm.collectionVariables.set(\"authToken\", token);",
+									"",
+									"// Log for debugging",
+									"console.log(\"Token set:\", token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"userapi\",\n  \"password\": \"userapi\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response to extract the token",
+									"let response = pm.response.json(); // assuming the response is JSON",
+									"let token = response.accessToken; // adjust the key based on your response structure",
+									"",
+									"// Set the token as a collection variable",
+									"pm.collectionVariables.set(\"authToken\", token);",
+									"",
+									"// Log for debugging",
+									"console.log(\"Token set:\", token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"user\",\n  \"password\": \"password\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8060",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": ""
+		}
+	]
+}
